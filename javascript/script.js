@@ -11,9 +11,12 @@ let items = ''
 
 
 let ask = prompt('Which item are you searching for?')
+let message;
 
-if(myShoppingList.includes(ask)){
-    message = `Yes, we have <strong>${ask}</strong>`;
+if(!ask){
+    message=`<strong>In Stock:</strong>${myShoppingList.join(', ')}`
+} else if(myShoppingList.includes(ask)){
+    message = `Yes, we have <strong>${ask}</strong> It's # ${myShoppingList.indexOf(ask)+1} on the list!`;
 } else {
     message=`Sorry, we do not have <strong>${ask}</strong>`
 }
